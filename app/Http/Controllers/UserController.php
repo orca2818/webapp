@@ -25,8 +25,8 @@ class UserController extends Controller
 
     public function update(Request $request, $id){
         $user = User::findOrFail($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $user->name = $request-> name;
+        $user->email = $request-> email;
         $user->email_verified_at = now();
         $user->save();
         //$user->fill($request->all())->save();
@@ -38,4 +38,9 @@ class UserController extends Controller
         return redirect('/user');
     }
 
+    public function home(Request $request) {
+        $user = User::where('id', $request -> id)->where('password', $request -> password)->first();
+        
+        return view('/home/index', compact('user'));
+    }
 }
