@@ -16,6 +16,8 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <!-- self made navigation layout -->
+                @include('layouts.self_made_nav')
             </div>
 
             <!-- Settings Dropdown -->
@@ -65,6 +67,12 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('video')" :active="request()->routeIs('video')">
+                ビデオ通話
             </x-responsive-nav-link>
         </div>
 
