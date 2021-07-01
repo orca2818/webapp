@@ -15,6 +15,12 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        
+        @isset($head)
+        {{ $head }}
+        @endisset
+        
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
