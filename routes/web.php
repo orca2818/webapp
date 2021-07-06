@@ -22,8 +22,19 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/video', function() {
-    return view('video/video');
+    return view('video');
 })->middleware(['auth'])->name('video');
 
+Route::get('/team', function() {
+    return view('team');
+})->middleware(['auth'])->name('team');
+
+Route::get('/chat', function() {
+    return view('chat');
+})->middleware(['auth'])->name('chat');
+
+Route::get('/profile', function() {
+    return view('profile');
+})->middleware(['auth'])->name('profile');
 
 require __DIR__.'/auth.php';
