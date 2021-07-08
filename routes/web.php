@@ -37,4 +37,13 @@ Route::get('/profile', function() {
     return view('profile');
 })->middleware(['auth'])->name('profile');
 
+Route::get('/setting', function() {
+    return view('setting');
+})->middleware(['auth'])->name('setting');
+
+Route::get('/password', function() {
+    return view('password');
+})->middleware(['auth'])->name('password');
+
+
 require __DIR__.'/auth.php';

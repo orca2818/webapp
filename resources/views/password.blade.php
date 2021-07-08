@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
+            {{ __('Password') }}
         </h2>
     </x-slot>
 
@@ -16,11 +16,11 @@
         </div>
     </div>
     <div>
-        <form action="/setting">
+        <form action="#">
             <button type="submit" class="flex hover:bg-yellow-300 text-xl p-5 m-5 w-1/2 mx-auto max-w-sm bg-white shadow-md rounded-xl">基本設定</button>
         </form>
         <div>
-            <form action="/password">
+            <form action="#">
                 <button type="submit" class="flex hover:bg-yellow-300 text-xl p-5 m-5 w-1/2 mx-auto max-w-sm bg-white shadow-md rounded-xl">パスワード変更</button>
             </form>
             </div>
