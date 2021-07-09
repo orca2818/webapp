@@ -5,18 +5,36 @@
         </h2>
     </x-slot>
 
-    <div class="flex p-5 m-5 mx-auto max-w-sm bg-white shadow-md">
-    <form action="#">
-    <div>
-        <label for="name" class="m-3">ユーザ名</label>
-        <input type="text" name="name" id="name" value="{{Auth::user()->name}}">
-    </div>
-    <div>
-        <label for="email" class="m-3">メールアドレス</label>
-        <input type="text" name="email" id="email" value="{{Auth::user()->email}}">
-    </div>
-    <button type="submit" class="flex hover:bg-yellow-300 p-2 m-5 w-1/5 mx-auto max-w-sm bg-white shadow-md rounded-xl">OK</button>
-    </form>
-    </div>
+    <form class="my-5 mx-auto max-w-xl" action="/setting/base/{{Auth::user()->id}}" method="POST">
+        @method("POST")
+        @csrf
+        
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">ユーザ名</label>
+          </div>
+          <div class="md:w-2/3">
+            <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" name="name" value="{{Auth::user()->name}}" type="text">
+          </div>
+        </div>
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-email">
+              メールアドレス
+            </label>
+          </div>
+          <div class="md:w-2/3">
+            <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-email" name="email" value="{{Auth::user()->email}}" type="email">
+          </div>
+        </div>
+        <div class="md:flex md:items-center">
+          <div class="md:w-1/3"></div>
+          <div class="md:w-2/3">
+            <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+              OK
+            </button>
+          </div>
+        </div>
+      </form>
 
 </x-app-layout>

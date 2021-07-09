@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,8 @@ Route::get('/profile', function() {
 Route::get('/setting', function() {
     return view('setting');
 })->middleware(['auth'])->name('setting');
+
+Route::post('/setting/base/{id}',[UserController::class, 'setting'])->middleware(['auth'])->name('setting/{id}');
 
 Route::get('/password', function() {
     return view('password');

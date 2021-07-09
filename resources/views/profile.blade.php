@@ -7,7 +7,6 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto">
     <div>
-    
         <div class="flex p-5 m-5 mx-auto max-w-sm bg-white shadow-md">
             <span class="text-xl">ユーザ名　{{Auth::user()->name}}</span>
         </div>
