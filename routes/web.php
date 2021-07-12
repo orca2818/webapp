@@ -42,11 +42,13 @@ Route::get('/setting', function() {
     return view('setting');
 })->middleware(['auth'])->name('setting');
 
-Route::post('/setting/base/{id}',[UserController::class, 'setting'])->middleware(['auth'])->name('setting/{id}');
+Route::post('/setting/{id}',[UserController::class, 'setting'])->middleware(['auth'])->name('setting/{id}');
 
 Route::get('/password', function() {
     return view('password');
 })->middleware(['auth'])->name('password');
+
+Route::post('/password/{id}',[UserController::class, 'password'])->middleware(['auth'])->name('password/{id}');
 
 
 require __DIR__.'/auth.php';

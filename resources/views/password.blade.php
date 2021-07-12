@@ -5,37 +5,55 @@
         </h2>
     </x-slot>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto">
-    <div>
-    
-        <div class="flex p-5 m-5 mx-auto max-w-sm bg-white shadow-md">
-            <span class="text-xl">ユーザ名　{{Auth::user()->name}}</span>
+    <div class="">
+        @if (session('warning'))
+        <div class="alert alert-warning">
+            {{ session('warning') }}
         </div>
-        <div class="flex p-5 m-5 mx-auto max-w-sm bg-white shadow-md">
-            <span class="text-xl">メールアドレス　{{Auth::user()->email}}</span>
-        </div>
-    </div>
-    <div>
-        <form action="#">
-            <button type="submit" class="flex hover:bg-yellow-300 text-xl p-5 m-5 w-1/2 mx-auto max-w-sm bg-white shadow-md rounded-xl">基本設定</button>
-        </form>
-        <div>
-            <form action="#">
-                <button type="submit" class="flex hover:bg-yellow-300 text-xl p-5 m-5 w-1/2 mx-auto max-w-sm bg-white shadow-md rounded-xl">パスワード変更</button>
-            </form>
-            </div>
-        <div>
-            <form action="#">
-                <button type="submit" class="flex hover:bg-yellow-300 text-xl p-5 m-5 w-1/2 mx-auto max-w-sm bg-white shadow-md rounded-xl">参加チーム</button>
-            </form>
-        </div>
+        @endif
     </div>
 
-    
-    </div>
+    <form class="my-5 mx-auto max-w-xl" action="/password/{{Auth::user()->id}}" method="POST">
+        @method("POST")
+        @csrf
+        
+        <div class="md:flex md:items-center mb-6">
 
+        <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="old-password">
+                現在のパスワード
+            </label>
+        </div>
 
+        <div class="md:w-2/3">
+            <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="old-password" name="oldPassword" type="text">
+        </div>
 
+        </div>
 
+        <div class="md:flex md:items-center mb-6">
+        
+        <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="new-password">
+              新しいパスワード
+            </label>
+        </div>
 
+        <div class="md:w-2/3">
+          <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="new-password" name="newPassword" type="text">
+        </div>
+        </div>
+
+        <div class="md:flex md:items-center">
+
+        <div class="md:w-1/3"></div>
+
+        <div class="md:w-2/3">
+          <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+              OK
+          </button>
+        </div>
+
+        </div>
+    </form>
 </x-app-layout>
