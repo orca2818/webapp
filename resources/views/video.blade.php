@@ -6,40 +6,18 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <video id="video" width="480" autoplay muted></video>
-                    <p id="id"></p>
-                </div>
-            </div>
-        </div>
+    <label for="roomID">ルーム名</label>
+    <input type="text" id="roomID" name="roomID">
+    <button type="submit" id="create" name="create" value="create">作成</button>
+    <button type="submit" id="connect" name="connect" value="connect">接続</button>
+    <button type="submit" id="disconnect" name="disconnect" value="disconnect">切断</button>
+
+    <div id="videoContainer">
+
     </div>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <input id="their-id">
-                    <button id="call">通話</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <video id="their-video" width="480" autoplay muted></video>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.webrtc.ecl.ntt.com/skyway-4.4.1.js"></script>
-    <script src="{{ asset('js/skyway-webrtc.js')}}"></script>
+    <script src="{{ asset('js/skyway-webrtc2.js')}}"></script>
 
 </x-app-layout>

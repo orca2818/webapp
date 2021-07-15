@@ -1,4 +1,5 @@
 let localStream;
+
 navigator.mediaDevices.getUserMedia({video: true, audio: true})
 .then( stream => {
 // 成功時にvideo要素にカメラ映像をセットし、再生
